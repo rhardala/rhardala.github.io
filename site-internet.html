@@ -1,0 +1,521 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Reddad – Google Ads E-commerce</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --black: #0e0e0d;
+    --cream: #f7f4ee;
+    --orange: #e8510a;
+    --orange-light: #fef0e8;
+    --gray: #f0ede6;
+    --muted: #888078;
+    --border: #e2ddd4;
+    --font-display: 'DM Serif Display', serif;
+    --font-body: 'DM Sans', sans-serif;
+  }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--cream);
+    color: var(--black);
+    font-family: var(--font-body);
+    font-size: 16px;
+    line-height: 1.65;
+    overflow-x: hidden;
+  }
+
+  nav {
+    position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 1.1rem 5vw;
+    background: rgba(247,244,238,0.95);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border);
+  }
+  .logo { font-family: var(--font-display); font-size: 1.6rem; color: var(--black); }
+  .logo span { color: var(--orange); }
+  .nav-links { display: flex; gap: 2rem; list-style: none; }
+  .nav-links a {
+    color: var(--muted); text-decoration: none;
+    font-size: 0.85rem; font-weight: 500;
+    letter-spacing: 0.04em; transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--black); }
+  .nav-cta {
+    background: var(--orange); color: #fff !important;
+    padding: 0.5rem 1.3rem; border-radius: 4px; font-weight: 600 !important;
+  }
+
+  .hero {
+    min-height: 100vh;
+    display: grid; grid-template-columns: 1fr 1fr;
+    padding-top: 72px;
+  }
+  .hero-left {
+    display: flex; flex-direction: column; justify-content: center;
+    padding: 5rem 4vw 5rem 5vw;
+  }
+  .launch-tag {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: var(--orange-light);
+    border: 1px solid rgba(232,81,10,0.2);
+    color: var(--orange);
+    font-size: 0.75rem; font-weight: 600;
+    letter-spacing: 0.08em; text-transform: uppercase;
+    padding: 0.4rem 1rem; border-radius: 30px;
+    width: fit-content; margin-bottom: 2rem;
+  }
+  h1 {
+    font-family: var(--font-display);
+    font-size: clamp(2.8rem, 5.5vw, 5rem);
+    line-height: 1.05; margin-bottom: 1.5rem;
+    color: var(--black);
+  }
+  h1 em { font-style: italic; color: var(--orange); }
+  .hero-sub {
+    color: var(--muted); font-size: 1rem;
+    max-width: 400px; margin-bottom: 2rem; line-height: 1.75;
+  }
+  .honest-box {
+    background: var(--orange-light);
+    border: 1px solid rgba(232,81,10,0.15);
+    border-left: 3px solid var(--orange);
+    border-radius: 0 6px 6px 0;
+    padding: 1rem 1.2rem;
+    margin-bottom: 2rem;
+    max-width: 440px;
+  }
+  .honest-box p { font-size: 0.85rem; color: #7a3010; line-height: 1.6; }
+  .hero-actions { display: flex; gap: 1rem; flex-wrap: wrap; align-items: center; }
+  .btn-primary {
+    background: var(--orange); color: #fff;
+    padding: 0.85rem 1.8rem; border-radius: 4px;
+    font-family: var(--font-body); font-size: 0.9rem; font-weight: 600;
+    border: none; cursor: pointer; text-decoration: none;
+    transition: background 0.2s, transform 0.15s; display: inline-block;
+  }
+  .btn-primary:hover { background: #c93f00; transform: translateY(-1px); }
+  .btn-ghost {
+    color: var(--black); padding: 0.85rem 1.8rem;
+    border: 1.5px solid var(--border); border-radius: 4px;
+    font-family: var(--font-body); font-size: 0.9rem; font-weight: 500;
+    background: transparent; cursor: pointer; text-decoration: none;
+    transition: border-color 0.2s; display: inline-block;
+  }
+  .btn-ghost:hover { border-color: #aaa; }
+
+  .hero-right {
+    background: var(--gray);
+    border-left: 1px solid var(--border);
+    display: flex; flex-direction: column;
+    justify-content: center; padding: 5rem 4vw;
+    gap: 1.5rem;
+  }
+
+  .cert-label {
+    font-size: 0.7rem; font-weight: 600; letter-spacing: 0.1em;
+    text-transform: uppercase; color: var(--muted); margin-bottom: 1rem;
+  }
+  .cert-card {
+    background: var(--cream);
+    border: 1px solid var(--border);
+    border-radius: 8px; padding: 1rem 1.2rem;
+    display: flex; align-items: center; gap: 12px;
+    transition: border-color 0.2s;
+  }
+  .cert-card:hover { border-color: var(--orange); }
+  .cert-logo {
+    width: 40px; height: 40px; border-radius: 8px;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 1.2rem; flex-shrink: 0;
+  }
+  .cert-logo.google { background: #e8f0fe; }
+  .cert-logo.shopping { background: #fce8e6; }
+  .cert-logo.pmax { background: #e6f4ea; }
+  .cert-info h4 { font-size: 0.9rem; font-weight: 600; margin-bottom: 2px; }
+  .cert-info p { font-size: 0.75rem; color: var(--muted); }
+  .cert-badge {
+    margin-left: auto; background: #e6f4ea;
+    color: #137333; font-size: 0.65rem; font-weight: 700;
+    letter-spacing: 0.06em; text-transform: uppercase;
+    padding: 3px 10px; border-radius: 20px; white-space: nowrap;
+  }
+  .cert-badge.pending { background: #fef7e0; color: #b06000; }
+
+  .skills-label {
+    font-size: 0.7rem; font-weight: 600; letter-spacing: 0.1em;
+    text-transform: uppercase; color: var(--muted); margin-top: 0.5rem; margin-bottom: 0.8rem;
+  }
+  .skills-pills { display: flex; flex-wrap: wrap; gap: 6px; }
+  .pill {
+    background: var(--cream); border: 1px solid var(--border);
+    border-radius: 20px; padding: 4px 12px;
+    font-size: 0.75rem; color: var(--black); font-weight: 500;
+  }
+
+  .pilote-section {
+    background: var(--black); color: var(--cream);
+    padding: 5rem 5vw;
+  }
+  .pilote-section .section-sub { color: rgba(247,244,238,0.4); }
+  .pilote-grid {
+    display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 3rem;
+  }
+  .pilote-card {
+    background: #1a1a18;
+    border: 1px solid rgba(247,244,238,0.08);
+    border-radius: 8px; padding: 2rem;
+    position: relative;
+  }
+  .pilote-card.featured { border-color: var(--orange); }
+  .spots-left {
+    position: absolute; top: -10px; right: 1.5rem;
+    background: var(--orange); color: #fff;
+    font-size: 0.65rem; font-weight: 700; letter-spacing: 0.08em;
+    text-transform: uppercase; padding: 3px 12px; border-radius: 20px;
+  }
+  .pilote-card h3 { font-size: 1rem; font-weight: 600; margin-bottom: 0.5rem; color: var(--cream); }
+  .pilote-price {
+    font-family: var(--font-display);
+    font-size: 2.5rem; margin: 0.8rem 0 0.3rem; color: var(--cream);
+  }
+  .pilote-price del {
+    font-size: 1.2rem; color: rgba(247,244,238,0.3);
+    font-family: var(--font-body); font-weight: 400; margin-right: 8px;
+  }
+  .pilote-price span { color: var(--orange); }
+  .pilote-note { font-size: 0.8rem; color: rgba(247,244,238,0.35); margin-bottom: 1.5rem; }
+  .pilote-features { list-style: none; }
+  .pilote-features li {
+    font-size: 0.85rem; color: rgba(247,244,238,0.65);
+    padding: 0.35rem 0;
+    display: flex; align-items: flex-start; gap: 8px;
+  }
+  .pilote-features li::before { content: '→'; color: var(--orange); flex-shrink: 0; }
+  .exchange-box {
+    margin-top: 1.5rem;
+    background: rgba(232,81,10,0.08);
+    border: 1px solid rgba(232,81,10,0.2);
+    border-radius: 6px; padding: 1rem;
+  }
+  .exchange-box p { font-size: 0.8rem; color: rgba(247,244,238,0.5); line-height: 1.6; }
+  .exchange-box strong { color: rgba(247,244,238,0.8); }
+
+  .services-section { padding: 5rem 5vw; background: var(--cream); }
+  .section-sub {
+    font-size: 0.7rem; font-weight: 600; letter-spacing: 0.1em;
+    text-transform: uppercase; color: var(--muted); margin-bottom: 0.6rem;
+  }
+  h2 {
+    font-family: var(--font-display);
+    font-size: clamp(2rem, 4vw, 3.2rem); margin-bottom: 0.5rem;
+  }
+  .services-grid {
+    display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1px; background: var(--border);
+    border: 1px solid var(--border); margin-top: 3rem;
+  }
+  .service-card {
+    background: var(--cream); padding: 1.8rem;
+    transition: background 0.2s;
+  }
+  .service-card:hover { background: var(--gray); }
+  .service-icon {
+    width: 38px; height: 38px;
+    background: var(--orange-light);
+    border-radius: 6px; display: flex; align-items: center;
+    justify-content: center; font-size: 1.1rem; margin-bottom: 1rem;
+  }
+  .service-card h3 { font-size: 0.95rem; font-weight: 600; margin-bottom: 0.4rem; }
+  .service-card p { font-size: 0.82rem; color: var(--muted); line-height: 1.65; }
+
+  .process-section { background: var(--gray); padding: 5rem 5vw; }
+  .steps { display: flex; flex-direction: column; gap: 0; margin-top: 3rem; }
+  .step {
+    display: grid; grid-template-columns: 64px 1fr;
+    border-top: 1px solid var(--border); padding: 1.8rem 0;
+    transition: background 0.2s;
+  }
+  .step:hover { background: rgba(0,0,0,0.02); }
+  .step-num {
+    font-family: var(--font-display); font-size: 2rem;
+    color: rgba(232,81,10,0.25); padding-top: 2px;
+  }
+  .step-content h3 { font-size: 1rem; font-weight: 600; margin-bottom: 0.3rem; }
+  .step-content p { font-size: 0.85rem; color: var(--muted); }
+
+  .about-section {
+    background: var(--cream); padding: 5rem 5vw;
+    display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center;
+  }
+  .about-section h2 { margin-bottom: 1rem; }
+  .about-text { font-size: 0.9rem; color: var(--muted); line-height: 1.8; }
+  .about-text p { margin-bottom: 1rem; }
+  .about-text strong { color: var(--black); font-weight: 600; }
+  .values-list { list-style: none; }
+  .values-list li {
+    display: flex; align-items: flex-start; gap: 10px;
+    font-size: 0.85rem; padding: 0.7rem 0;
+    border-bottom: 1px solid var(--border);
+    color: var(--black);
+  }
+  .values-list li:last-child { border-bottom: none; }
+  .values-list li span { color: var(--orange); font-size: 1.1rem; flex-shrink: 0; }
+
+  .cta-section {
+    background: var(--orange); color: #fff;
+    padding: 5rem 5vw; text-align: center;
+  }
+  .cta-section h2 { font-family: var(--font-display); color: #fff; font-size: clamp(2rem, 4vw, 3.5rem); margin-bottom: 1rem; }
+  .cta-section p { color: rgba(255,255,255,0.75); max-width: 480px; margin: 0 auto 2rem; }
+  .btn-white {
+    background: #fff; color: var(--orange);
+    padding: 0.9rem 2.2rem; border-radius: 4px;
+    font-weight: 700; font-size: 0.95rem;
+    text-decoration: none; display: inline-block;
+    transition: transform 0.15s;
+  }
+  .btn-white:hover { transform: translateY(-2px); }
+
+  footer {
+    background: var(--black); color: rgba(247,244,238,0.35);
+    padding: 2rem 5vw;
+    display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;
+  }
+  footer .logo { color: var(--cream); font-size: 1.3rem; }
+  footer p { font-size: 0.75rem; }
+
+  @media (max-width: 768px) {
+    .hero { grid-template-columns: 1fr; }
+    .hero-right { display: none; }
+    .nav-links { display: none; }
+    .pilote-grid { grid-template-columns: 1fr; }
+    .about-section { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="logo">Ad<span>Scale</span></div>
+  <ul class="nav-links">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#offre">Offre pilote</a></li>
+    <li><a href="#processus">Processus</a></li>
+    <li><a href="#about">À propos</a></li>
+    <li><a href="#contact" class="nav-cta">Me contacter</a></li>
+  </ul>
+</nav>
+
+<section class="hero" style="padding-top:72px;">
+  <div class="hero-left">
+    <div class="launch-tag">🚀 En lancement · Offre limitée</div>
+    <h1>
+      Google Ads e-commerce,<br>
+      <em>certifié et disponible.</em>
+    </h1>
+    <p class="hero-sub">Certifié Google Ads, je gère vos campagnes Shopping et Performance Max avec méthode et rigueur — à un tarif de lancement accessible.</p>
+    <div class="honest-box">
+      <p>Je suis en début d'activité freelance. En échange de vrais résultats, je propose des tarifs réduits et un engagement total sur chaque compte que je gère.</p>
+    </div>
+    <div class="hero-actions">
+      <a href="#offre" class="btn-primary">Voir l'offre pilote</a>
+      <a href="#about" class="btn-ghost">Mon parcours →</a>
+    </div>
+  </div>
+
+  <div class="hero-right">
+    <div class="cert-label">Certifications Google</div>
+    <div class="cert-card">
+      <div class="cert-logo google">🎓</div>
+      <div class="cert-info">
+        <h4>Google Ads Search</h4>
+        <p>Google Skillshop · 2024</p>
+      </div>
+      <div class="cert-badge">Certifié</div>
+    </div>
+    <div class="cert-card">
+      <div class="cert-logo shopping">🛍️</div>
+      <div class="cert-info">
+        <h4>Google Ads Shopping</h4>
+        <p>Google Skillshop · 2024</p>
+      </div>
+      <div class="cert-badge">Certifié</div>
+    </div>
+    <div class="cert-card">
+      <div class="cert-logo pmax">⚡</div>
+      <div class="cert-info">
+        <h4>Performance Max</h4>
+        <p>Google Skillshop · En cours</p>
+      </div>
+      <div class="cert-badge pending">En cours</div>
+    </div>
+
+    <div class="skills-label">Compétences maîtrisées</div>
+    <div class="skills-pills">
+      <span class="pill">Google Shopping</span>
+      <span class="pill">Merchant Center</span>
+      <span class="pill">Performance Max</span>
+      <span class="pill">Remarketing</span>
+      <span class="pill">Google Analytics 4</span>
+      <span class="pill">Flux produit</span>
+      <span class="pill">GTM</span>
+    </div>
+  </div>
+</section>
+
+<section id="offre" class="pilote-section">
+  <p class="section-sub">Offre de lancement</p>
+  <h2 style="color:var(--cream)">2 places pilotes disponibles</h2>
+  <p style="color:rgba(247,244,238,0.45);margin-top:0.5rem;max-width:500px;font-size:0.9rem;">
+    Je recherche 2 boutiques e-commerce pour démarrer, à tarif réduit. En contrepartie : un engagement maximal, une disponibilité totale et — si vous êtes satisfait — un témoignage.
+  </p>
+  <div class="pilote-grid">
+    <div class="pilote-card featured">
+      <div class="spots-left">2 places restantes</div>
+      <h3>Formule Pilote</h3>
+      <div class="pilote-price"><del>€490</del><span>€190</span>/mois</div>
+      <div class="pilote-note">Budget publicitaire : €1 000 à €10 000/mois · Durée : 3 mois minimum</div>
+      <ul class="pilote-features">
+        <li>Audit complet de votre compte existant</li>
+        <li>Restructuration des campagnes Shopping / PMax</li>
+        <li>Optimisation du flux Merchant Center</li>
+        <li>Suivi hebdomadaire en visio</li>
+        <li>Reporting mensuel détaillé</li>
+        <li>Disponibilité 7j/7 par message</li>
+      </ul>
+      <div class="exchange-box">
+        <p><strong>Ce que je demande en échange :</strong> si les résultats sont au rendez-vous après 3 mois, un témoignage honnête sur votre expérience. C'est tout.</p>
+      </div>
+    </div>
+
+    <div class="pilote-card">
+      <h3>Audit offert</h3>
+      <div class="pilote-price" style="font-size:2rem;">Gratuit</div>
+      <div class="pilote-note">Sans engagement · Réponse sous 48h</div>
+      <ul class="pilote-features">
+        <li>Analyse de votre compte Google Ads actuel</li>
+        <li>Identification des erreurs et fuites budgétaires</li>
+        <li>Opportunités d'optimisation prioritaires</li>
+        <li>Recommandations concrètes et actionnables</li>
+        <li>Appel de restitution de 30 min</li>
+      </ul>
+      <div class="exchange-box">
+        <p><strong>Pourquoi gratuit ?</strong> C'est ma façon de vous montrer concrètement ce que je vaux, sans vous demander de me faire confiance aveuglément.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="services" class="services-section">
+  <p class="section-sub">Ce que je gère</p>
+  <h2>Services</h2>
+  <div class="services-grid">
+    <div class="service-card">
+      <div class="service-icon">🛍️</div>
+      <h3>Google Shopping</h3>
+      <p>Structure de campagnes, segmentation par marge, stratégies d'enchères ROAS cible et optimisation continue.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">⚡</div>
+      <h3>Performance Max</h3>
+      <p>Configuration, asset groups, signaux d'audience. La campagne la plus puissante de Google, bien paramétrée.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">📦</div>
+      <h3>Flux Merchant Center</h3>
+      <p>Optimisation des titres, attributs produit, règles de transformation pour maximiser l'éligibilité et la visibilité.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">🔁</div>
+      <h3>Remarketing</h3>
+      <p>Relance des visiteurs et paniers abandonnés via audiences Google Ads et listes de clients.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">📊</div>
+      <h3>Tracking & Analytics</h3>
+      <p>Configuration GA4, Google Tag Manager et conversions fiables — la base de toute optimisation sérieuse.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">🔍</div>
+      <h3>Audit de compte</h3>
+      <p>Analyse complète de vos campagnes existantes, identification des erreurs et plan d'action prioritaire.</p>
+    </div>
+  </div>
+</section>
+
+<section id="processus" class="process-section">
+  <p class="section-sub">Comment ça se passe</p>
+  <h2>Processus</h2>
+  <div class="steps">
+    <div class="step">
+      <div class="step-num">01</div>
+      <div class="step-content">
+        <h3>Audit gratuit de votre compte</h3>
+        <p>J'analyse vos campagnes actuelles, votre flux produit et votre secteur. Je vous restitue un rapport clair et un appel de 30 min.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">02</div>
+      <div class="step-content">
+        <h3>On définit les objectifs ensemble</h3>
+        <p>ROAS cible, budget, produits prioritaires, saisonnalité. On pose des objectifs réalistes avant de commencer.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">03</div>
+      <div class="step-content">
+        <h3>Mise en place et lancement</h3>
+        <p>Restructuration des campagnes, optimisation du Merchant Center, vérification du tracking. Tout est en place avant de lancer.</p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="step-num">04</div>
+      <div class="step-content">
+        <h3>Suivi hebdomadaire</h3>
+        <p>Point en visio chaque semaine, accès en lecture à votre compte, reporting mensuel complet. Vous savez toujours où en sont vos campagnes.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="about" class="about-section">
+  <div>
+    <p class="section-sub">À propos</p>
+    <h2>Pourquoi travailler avec moi ?</h2>
+    <div class="about-text">
+      <p>Je suis <strong>en début d'activité freelance</strong>, certifié Google Ads Search et Shopping. J'ai investi du temps à me former en profondeur sur les campagnes e-commerce — Shopping, Performance Max, flux produit et tracking.</p>
+      <p>Ce que je vous offre : <strong>une disponibilité totale, des tarifs accessibles, et une attention que vous ne trouverez pas dans une agence.</strong> Chaque compte est suivi comme s'il était le mien.</p>
+    </div>
+  </div>
+  <div>
+    <ul class="values-list">
+      <li><span>✓</span> Certifications Google Ads officielles</li>
+      <li><span>✓</span> Transparence totale sur les résultats</li>
+      <li><span>✓</span> Explications claires, sans jargon inutile</li>
+      <li><span>✓</span> Tarifs de lancement très accessibles</li>
+      <li><span>✓</span> Accès en lecture à votre compte à tout moment</li>
+      <li><span>✓</span> Pas d'engagement long terme dès le départ</li>
+      <li><span>✓</span> Un seul client à la fois = attention complète</li>
+    </ul>
+  </div>
+</section>
+
+<section id="contact" class="cta-section">
+  <h2>Parlons de votre boutique</h2>
+  <p>Un audit gratuit, sans engagement. Je vous dis ce que je vois dans vos campagnes — et ce qu'on peut améliorer.</p>
+  <a href="reddad.hardala@laposte.net" class="btn-white">Demander mon audit gratuit →</a>
+  <p style="margin-top:1.2rem;font-size:0.8rem;color:rgba(255,255,255,0.5)">Réponse sous 48h · Aucun engagement requis</p>
+</section>
+
+<footer>
+  <div class="logo">Ad<span>Scale</span></div>
+  <p>© 2025 Reddad – Freelance Google Ads E-commerce</p>
+</footer>
+
+</body>
+</html>
