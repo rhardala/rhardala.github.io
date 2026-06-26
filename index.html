@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Reddad – Google Ads E-commerce</title>
+<title>Reddad – Google Ads Artisans</title>
 <link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 <style>
   *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -134,8 +134,8 @@
     font-size: 1.2rem; flex-shrink: 0;
   }
   .cert-logo.google { background: #e8f0fe; }
-  .cert-logo.shopping { background: #fce8e6; }
-  .cert-logo.pmax { background: #e6f4ea; }
+  .cert-logo.local { background: #fce8e6; }
+  .cert-logo.search { background: #e6f4ea; }
   .cert-info h4 { font-size: 0.9rem; font-weight: 600; margin-bottom: 2px; }
   .cert-info p { font-size: 0.75rem; color: var(--muted); }
   .cert-badge {
@@ -157,45 +157,41 @@
     font-size: 0.75rem; color: var(--black); font-weight: 500;
   }
 
-  .pilote-section {
+  /* OFFRE FORMATION */
+  .formation-section {
     background: var(--black); color: var(--cream);
     padding: 5rem 5vw;
   }
-  .pilote-section .section-sub { color: rgba(247,244,238,0.4); }
-  .pilote-grid {
+  .formation-section .section-sub { color: rgba(247,244,238,0.4); }
+  .formation-grid {
     display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-top: 3rem;
   }
-  .pilote-card {
+  .formation-card {
     background: #1a1a18;
     border: 1px solid rgba(247,244,238,0.08);
     border-radius: 8px; padding: 2rem;
     position: relative;
   }
-  .pilote-card.featured { border-color: var(--orange); }
+  .formation-card.featured { border-color: var(--orange); }
   .spots-left {
     position: absolute; top: -10px; right: 1.5rem;
     background: var(--orange); color: #fff;
     font-size: 0.65rem; font-weight: 700; letter-spacing: 0.08em;
     text-transform: uppercase; padding: 3px 12px; border-radius: 20px;
   }
-  .pilote-card h3 { font-size: 1rem; font-weight: 600; margin-bottom: 0.5rem; color: var(--cream); }
-  .pilote-price {
+  .formation-card h3 { font-size: 1rem; font-weight: 600; margin-bottom: 0.5rem; color: var(--cream); }
+  .formation-price {
     font-family: var(--font-display);
-    font-size: 2.5rem; margin: 0.8rem 0 0.3rem; color: var(--cream);
+    font-size: 2.8rem; margin: 0.8rem 0 0.3rem; color: var(--orange);
   }
-  .pilote-price del {
-    font-size: 1.2rem; color: rgba(247,244,238,0.3);
-    font-family: var(--font-body); font-weight: 400; margin-right: 8px;
-  }
-  .pilote-price span { color: var(--orange); }
-  .pilote-note { font-size: 0.8rem; color: rgba(247,244,238,0.35); margin-bottom: 1.5rem; }
-  .pilote-features { list-style: none; }
-  .pilote-features li {
+  .formation-note { font-size: 0.8rem; color: rgba(247,244,238,0.35); margin-bottom: 1.5rem; }
+  .formation-features { list-style: none; }
+  .formation-features li {
     font-size: 0.85rem; color: rgba(247,244,238,0.65);
     padding: 0.35rem 0;
     display: flex; align-items: flex-start; gap: 8px;
   }
-  .pilote-features li::before { content: '→'; color: var(--orange); flex-shrink: 0; }
+  .formation-features li::before { content: '→'; color: var(--orange); flex-shrink: 0; }
   .exchange-box {
     margin-top: 1.5rem;
     background: rgba(232,81,10,0.08);
@@ -278,6 +274,7 @@
     font-weight: 700; font-size: 0.95rem;
     text-decoration: none; display: inline-block;
     transition: transform 0.15s;
+    border: none; cursor: pointer; font-family: inherit;
   }
   .btn-white:hover { transform: translateY(-2px); }
 
@@ -293,7 +290,7 @@
     .hero { grid-template-columns: 1fr; }
     .hero-right { display: none; }
     .nav-links { display: none; }
-    .pilote-grid { grid-template-columns: 1fr; }
+    .formation-grid { grid-template-columns: 1fr; }
     .about-section { grid-template-columns: 1fr; }
   }
 </style>
@@ -304,7 +301,7 @@
   <div class="logo">Red<span>dad</span></div>
   <ul class="nav-links">
     <li><a href="#services">Services</a></li>
-    <li><a href="#offre">Offre pilote</a></li>
+    <li><a href="#offre">Offre formation</a></li>
     <li><a href="#processus">Processus</a></li>
     <li><a href="#about">À propos</a></li>
     <li><a href="#contact" class="nav-cta">Me contacter</a></li>
@@ -313,17 +310,17 @@
 
 <section class="hero" style="padding-top:72px;">
   <div class="hero-left">
-    <div class="launch-tag">🚀 En lancement · Offre limitée</div>
+    <div class="launch-tag">🎓 Dans le cadre de ma formation · 2 places gratuites</div>
     <h1>
-      Google Ads e-commerce,<br>
-      <em>certifié et disponible.</em>
+      Plus de clients<br>
+      <em>grâce à Google Ads.</em>
     </h1>
-    <p class="hero-sub">Certifié Google Ads, je gère vos campagnes Shopping et Performance Max avec méthode et rigueur — à un tarif de lancement accessible.</p>
+    <p class="hero-sub">Plombier, électricien, maçon, menuisier… Je crée et gère vos campagnes Google Ads pour que les clients de votre secteur vous trouvent en premier.</p>
     <div class="honest-box">
-      <p>Je suis en début d'activité freelance. En échange de vrais résultats, je propose des tarifs réduits et un engagement total sur chaque compte que je gère.</p>
+      <p>Dans le cadre de ma formation Google Ads, j'accompagne <strong>2 artisans gratuitement pendant 1 mois</strong>. Pas de frais, pas de contrat — juste des résultats concrets en échange de votre confiance.</p>
     </div>
     <div class="hero-actions">
-      <a href="#offre" class="btn-primary">Voir l'offre pilote</a>
+      <a href="#offre" class="btn-primary">Voir l'offre gratuite</a>
       <a href="#about" class="btn-ghost">Mon parcours →</a>
     </div>
   </div>
@@ -339,7 +336,7 @@
       <div class="cert-badge">Certifié</div>
     </div>
     <div class="cert-card">
-      <div class="cert-logo shopping">🛍️</div>
+      <div class="cert-logo local">📍</div>
       <div class="cert-info">
         <h4>Google Ads Shopping</h4>
         <p>Google Skillshop · 2024</p>
@@ -347,7 +344,7 @@
       <div class="cert-badge">Certifié</div>
     </div>
     <div class="cert-card">
-      <div class="cert-logo pmax">⚡</div>
+      <div class="cert-logo search">⚡</div>
       <div class="cert-info">
         <h4>Performance Max</h4>
         <p>Google Skillshop · En cours</p>
@@ -357,97 +354,101 @@
 
     <div class="skills-label">Compétences maîtrisées</div>
     <div class="skills-pills">
-      <span class="pill">Google Shopping</span>
-      <span class="pill">Merchant Center</span>
-      <span class="pill">Performance Max</span>
-      <span class="pill">Remarketing</span>
+      <span class="pill">Google Ads Search</span>
+      <span class="pill">Campagnes locales</span>
+      <span class="pill">Google Maps Ads</span>
+      <span class="pill">Ciblage géographique</span>
       <span class="pill">Google Analytics 4</span>
-      <span class="pill">Flux produit</span>
+      <span class="pill">Suivi des appels</span>
       <span class="pill">GTM</span>
     </div>
   </div>
 </section>
 
-<section id="offre" class="pilote-section">
-  <p class="section-sub">Offre de lancement</p>
-  <h2 style="color:var(--cream)">2 places pilotes disponibles</h2>
-  <p style="color:rgba(247,244,238,0.45);margin-top:0.5rem;max-width:500px;font-size:0.9rem;">
-    Je recherche 2 boutiques e-commerce pour démarrer, à tarif réduit. En contrepartie : un engagement maximal, une disponibilité totale et — si vous êtes satisfait — un témoignage.
+<!-- OFFRE FORMATION -->
+<section id="offre" class="formation-section">
+  <p class="section-sub">Offre formation</p>
+  <h2 style="color:var(--cream)">2 places gratuites disponibles</h2>
+  <p style="color:rgba(247,244,238,0.45);margin-top:0.5rem;max-width:520px;font-size:0.9rem;">
+    Dans le cadre de ma formation Google Ads, je cherche 2 artisans volontaires pour mettre en pratique mes compétences sur de vraies campagnes. L'accompagnement est entièrement gratuit pendant 1 mois.
   </p>
-  <div class="pilote-grid">
-    <div class="pilote-card featured">
+  <div class="formation-grid">
+    <div class="formation-card featured">
       <div class="spots-left">2 places restantes</div>
-      <h3>Formule Pilote</h3>
-      <div class="pilote-price"><del>€490</del><span>€190</span>/mois</div>
-      <div class="pilote-note">Budget publicitaire : €1 000 à €10 000/mois · Durée : 3 mois minimum</div>
-      <ul class="pilote-features">
-        <li>Audit complet de votre compte existant</li>
-        <li>Restructuration des campagnes Shopping / PMax</li>
-        <li>Optimisation du flux Merchant Center</li>
-        <li>Suivi hebdomadaire en visio</li>
-        <li>Reporting mensuel détaillé</li>
-        <li>Disponibilité 7j/7 par message</li>
+      <h3>Accompagnement formation</h3>
+      <div class="formation-price">Gratuit</div>
+      <div class="formation-note">Durée : 1 mois · Budget pub à votre charge (minimum conseillé : 150€/mois)</div>
+      <ul class="formation-features">
+        <li>Création ou audit de votre compte Google Ads</li>
+        <li>Campagne Search ciblée sur votre zone géographique</li>
+        <li>Mots-clés adaptés à votre métier d'artisan</li>
+        <li>Suivi hebdomadaire des performances</li>
+        <li>Rapport de fin de mois avec résultats</li>
+        <li>Conseils pour la suite, sans engagement</li>
       </ul>
       <div class="exchange-box">
-        <p><strong>Ce que je demande en échange :</strong> si les résultats sont au rendez-vous après 3 mois, un témoignage honnête sur votre expérience. C'est tout.</p>
+        <p><strong>Ce que je vous demande en échange :</strong> un retour honnête sur l'expérience à la fin du mois, et l'accès à votre compte Google Ads pour pratiquer. C'est tout.</p>
       </div>
     </div>
 
-    <div class="pilote-card">
-      <h3>Audit offert</h3>
-      <div class="pilote-price" style="font-size:2rem;">Gratuit</div>
-      <div class="pilote-note">Sans engagement · Réponse sous 48h</div>
-      <ul class="pilote-features">
-        <li>Analyse de votre compte Google Ads actuel</li>
-        <li>Identification des erreurs et fuites budgétaires</li>
-        <li>Opportunités d'optimisation prioritaires</li>
-        <li>Recommandations concrètes et actionnables</li>
-        <li>Appel de restitution de 30 min</li>
+    <div class="formation-card">
+      <h3>Pourquoi c'est gratuit ?</h3>
+      <div class="formation-price" style="font-size:1.6rem;line-height:1.3;margin-bottom:1rem;">Je me forme,<br>vous en profitez.</div>
+      <div class="formation-note">Une opportunité pour vous, une expérience réelle pour moi.</div>
+      <ul class="formation-features">
+        <li>Je suis en formation certifiante Google Ads</li>
+        <li>J'ai besoin de cas réels pour valider mes compétences</li>
+        <li>Vous bénéficiez d'un suivi sérieux et rigoureux</li>
+        <li>Zéro engagement de votre côté</li>
+        <li>Vous gardez le contrôle total de votre compte</li>
+        <li>Si ça fonctionne, on peut continuer ensemble</li>
       </ul>
       <div class="exchange-box">
-        <p><strong>Pourquoi gratuit ?</strong> C'est ma façon de vous montrer concrètement ce que je vaux, sans vous demander de me faire confiance aveuglément.</p>
+        <p><strong>Seul prérequis :</strong> avoir (ou créer) un compte Google Ads et un budget publicitaire minimum pour lancer les campagnes.</p>
       </div>
     </div>
   </div>
 </section>
 
+<!-- SERVICES -->
 <section id="services" class="services-section">
   <p class="section-sub">Ce que je gère</p>
-  <h2>Services</h2>
+  <h2>Services pour artisans</h2>
   <div class="services-grid">
     <div class="service-card">
-      <div class="service-icon">🛍️</div>
-      <h3>Google Shopping</h3>
-      <p>Structure de campagnes, segmentation par marge, stratégies d'enchères ROAS cible et optimisation continue.</p>
-    </div>
-    <div class="service-card">
-      <div class="service-icon">⚡</div>
-      <h3>Performance Max</h3>
-      <p>Configuration, asset groups, signaux d'audience. La campagne la plus puissante de Google, bien paramétrée.</p>
-    </div>
-    <div class="service-card">
-      <div class="service-icon">📦</div>
-      <h3>Flux Merchant Center</h3>
-      <p>Optimisation des titres, attributs produit, règles de transformation pour maximiser l'éligibilité et la visibilité.</p>
-    </div>
-    <div class="service-card">
-      <div class="service-icon">🔁</div>
-      <h3>Remarketing</h3>
-      <p>Relance des visiteurs et paniers abandonnés via audiences Google Ads et listes de clients.</p>
-    </div>
-    <div class="service-card">
-      <div class="service-icon">📊</div>
-      <h3>Tracking & Analytics</h3>
-      <p>Configuration GA4, Google Tag Manager et conversions fiables — la base de toute optimisation sérieuse.</p>
+      <div class="service-icon">📍</div>
+      <h3>Campagnes locales</h3>
+      <p>Ciblage précis de votre zone d'intervention — ville, rayon kilométrique — pour attirer uniquement des clients proches de chez vous.</p>
     </div>
     <div class="service-card">
       <div class="service-icon">🔍</div>
-      <h3>Audit de compte</h3>
-      <p>Analyse complète de vos campagnes existantes, identification des erreurs et plan d'action prioritaire.</p>
+      <h3>Google Search</h3>
+      <p>Apparaître en tête des résultats quand quelqu'un cherche "plombier urgent Paris" ou "électricien Lyon" — au moment exact où il a besoin de vous.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">📞</div>
+      <h3>Suivi des appels</h3>
+      <p>Mesurer combien d'appels viennent directement de vos annonces Google pour savoir exactement ce que vous rapporte votre budget pub.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">🗺️</div>
+      <h3>Google Maps Ads</h3>
+      <p>Apparaître en premier dans Google Maps quand un client cherche un artisan de votre métier près de chez lui.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">📊</div>
+      <h3>Suivi & reporting</h3>
+      <p>Un rapport clair chaque mois : nombre d'appels générés, coût par contact, et recommandations pour la suite.</p>
+    </div>
+    <div class="service-card">
+      <div class="service-icon">⚙️</div>
+      <h3>Création du compte</h3>
+      <p>Vous n'avez pas encore de compte Google Ads ? Je m'occupe de tout créer et paramétrer correctement dès le départ.</p>
     </div>
   </div>
 </section>
 
+<!-- PROCESSUS -->
 <section id="processus" class="process-section">
   <p class="section-sub">Comment ça se passe</p>
   <h2>Processus</h2>
@@ -455,78 +456,84 @@
     <div class="step">
       <div class="step-num">01</div>
       <div class="step-content">
-        <h3>Audit gratuit de votre compte</h3>
-        <p>J'analyse vos campagnes actuelles, votre flux produit et votre secteur. Je vous restitue un rapport clair et un appel de 30 min.</p>
+        <h3>Un appel de découverte gratuit</h3>
+        <p>On fait connaissance : votre métier, votre zone, vos clients idéaux et votre budget disponible. 30 minutes suffisent.</p>
       </div>
     </div>
     <div class="step">
       <div class="step-num">02</div>
       <div class="step-content">
-        <h3>On définit les objectifs ensemble</h3>
-        <p>ROAS cible, budget, produits prioritaires, saisonnalité. On pose des objectifs réalistes avant de commencer.</p>
+        <h3>Création ou audit de votre compte</h3>
+        <p>J'accède à votre compte Google Ads, j'analyse ce qui existe ou je pars de zéro. Je vous explique tout ce que je fais.</p>
       </div>
     </div>
     <div class="step">
       <div class="step-num">03</div>
       <div class="step-content">
-        <h3>Mise en place et lancement</h3>
-        <p>Restructuration des campagnes, optimisation du Merchant Center, vérification du tracking. Tout est en place avant de lancer.</p>
+        <h3>Lancement des campagnes</h3>
+        <p>Mots-clés, annonces, ciblage géographique, budget quotidien. Les campagnes sont en ligne en moins d'une semaine.</p>
       </div>
     </div>
     <div class="step">
       <div class="step-num">04</div>
       <div class="step-content">
-        <h3>Suivi hebdomadaire</h3>
-        <p>Point en visio chaque semaine, accès en lecture à votre compte, reporting mensuel complet. Vous savez toujours où en sont vos campagnes.</p>
+        <h3>Suivi et rapport de fin de mois</h3>
+        <p>Je surveille les performances chaque semaine et vous envoie un bilan complet à la fin du mois avec les résultats obtenus.</p>
       </div>
     </div>
   </div>
 </section>
 
+<!-- ABOUT -->
 <section id="about" class="about-section">
   <div>
     <p class="section-sub">À propos</p>
     <h2>Pourquoi travailler avec moi ?</h2>
     <div class="about-text">
-      <p>Je suis <strong>en début d'activité freelance</strong>, certifié Google Ads Search et Shopping. J'ai investi du temps à me former en profondeur sur les campagnes e-commerce — Shopping, Performance Max, flux produit et tracking.</p>
-      <p>Ce que je vous offre : <strong>une disponibilité totale, des tarifs accessibles, et une attention que vous ne trouverez pas dans une agence.</strong> Chaque compte est suivi comme s'il était le mien.</p>
+      <p>Je suis en formation Google Ads, certifié Search et Shopping. J'ai choisi de me spécialiser sur les artisans car c'est un secteur où <strong>Google Ads peut faire une vraie différence</strong> — et où beaucoup de professionnels ne savent pas encore comment l'utiliser.</p>
+      <p>Mon objectif : vous apporter des appels et des demandes de devis concrets, pas des clics qui ne convertissent pas. <strong>Chaque euro de votre budget pub est traité avec soin.</strong></p>
     </div>
   </div>
   <div>
     <ul class="values-list">
       <li><span>✓</span> Certifications Google Ads officielles</li>
-      <li><span>✓</span> Transparence totale sur les résultats</li>
-      <li><span>✓</span> Explications claires, sans jargon inutile</li>
-      <li><span>✓</span> Tarifs de lancement très accessibles</li>
-      <li><span>✓</span> Accès en lecture à votre compte à tout moment</li>
-      <li><span>✓</span> Pas d'engagement long terme dès le départ</li>
-      <li><span>✓</span> Un seul client à la fois = attention complète</li>
+      <li><span>✓</span> Spécialisé artisans et professionnels locaux</li>
+      <li><span>✓</span> Explications claires, sans jargon</li>
+      <li><span>✓</span> Vous gardez le contrôle de votre compte</li>
+      <li><span>✓</span> Reporting mensuel lisible et concret</li>
+      <li><span>✓</span> Aucun engagement de votre côté</li>
+      <li><span>✓</span> Disponible et réactif par téléphone ou message</li>
     </ul>
   </div>
 </section>
 
+<!-- CTA -->
 <section id="contact" class="cta-section">
-  <h2>Parlons de votre boutique</h2>
-  <p>Un audit gratuit, sans engagement. Je vous dis ce que je vois dans vos campagnes — et ce qu'on peut améliorer.</p>
+  <h2>Une place gratuite pour vous ?</h2>
+  <p>Remplissez ce formulaire, je vous recontacte sous 48h pour un appel de découverte gratuit et sans engagement.</p>
 
   <form action="https://formspree.io/f/xwvjvbyw" method="POST" style="max-width:460px;margin:0 auto;display:flex;flex-direction:column;gap:12px;text-align:left;">
     <input type="text" name="nom" placeholder="Votre nom" required
       style="padding:0.85rem 1.1rem;border-radius:4px;border:none;font-family:inherit;font-size:0.9rem;background:#fff;color:#0e0e0d;outline:none;">
+    <input type="text" name="metier" placeholder="Votre métier (plombier, électricien…)" required
+      style="padding:0.85rem 1.1rem;border-radius:4px;border:none;font-family:inherit;font-size:0.9rem;background:#fff;color:#0e0e0d;outline:none;">
+    <input type="text" name="ville" placeholder="Votre ville / zone d'intervention" required
+      style="padding:0.85rem 1.1rem;border-radius:4px;border:none;font-family:inherit;font-size:0.9rem;background:#fff;color:#0e0e0d;outline:none;">
     <input type="email" name="email" placeholder="Votre adresse email" required
       style="padding:0.85rem 1.1rem;border-radius:4px;border:none;font-family:inherit;font-size:0.9rem;background:#fff;color:#0e0e0d;outline:none;">
-    <input type="url" name="boutique" placeholder="URL de votre boutique (optionnel)"
+    <input type="tel" name="telephone" placeholder="Votre numéro de téléphone"
       style="padding:0.85rem 1.1rem;border-radius:4px;border:none;font-family:inherit;font-size:0.9rem;background:#fff;color:#0e0e0d;outline:none;">
-    <textarea name="message" placeholder="Parlez-moi de votre projet, votre budget pub actuel..." rows="4" required
+    <textarea name="message" placeholder="Avez-vous déjà un compte Google Ads ? Un site internet ?" rows="3"
       style="padding:0.85rem 1.1rem;border-radius:4px;border:none;font-family:inherit;font-size:0.9rem;background:#fff;color:#0e0e0d;outline:none;resize:vertical;"></textarea>
-    <button type="submit" class="btn-white" style="cursor:pointer;font-family:inherit;text-align:center;">Envoyer ma demande →</button>
+    <button type="submit" class="btn-white">Réserver ma place gratuite →</button>
   </form>
 
-  <p style="margin-top:1.2rem;font-size:0.8rem;color:rgba(255,255,255,0.5)">Réponse sous 48h · Aucun engagement requis</p>
+  <p style="margin-top:1.2rem;font-size:0.8rem;color:rgba(255,255,255,0.5)">Réponse sous 48h · Aucun engagement · 2 places disponibles</p>
 </section>
 
 <footer>
   <div class="logo">RED<span>DAD</span></div>
-  <p>© 2026 Reddad – Freelance Google Ads E-commerce</p>
+  <p>© 2026 Reddad – Google Ads pour Artisans</p>
 </footer>
 
 </body>
